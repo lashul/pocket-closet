@@ -349,7 +349,9 @@ header {
     opacity: 1;
     display: flex;
     flex-direction: column;
-    max-width: 300px;
+    width: 100%;
+    height: 320px;
+    /* Fixed height for consistency */
 }
 
 .item-card:hover {
@@ -357,15 +359,20 @@ header {
     border-color: var(--primary);
 }
 
-.item-image {
+.item-image,
+.item-image-placeholder {
     width: 100%;
-    height: 180px;
+    height: 160px !important;
+    /* Fixed image height */
     object-fit: cover;
     background: #1e2023;
 }
 
 .item-info {
-    padding: 0.6rem;
+    padding: 0.8rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .item-type {
@@ -379,10 +386,11 @@ header {
 .item-name {
     font-size: 0.9rem;
     font-weight: 600;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.5rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    min-height: 1.2rem;
 }
 
 .item-tags {
@@ -390,17 +398,23 @@ header {
     flex-wrap: wrap;
     gap: 0.3rem;
     margin-top: 0.2rem;
+    height: 2.4rem;
+    /* Fixed height for exactly 2 lines */
+    overflow: hidden;
+    align-content: flex-start;
 }
 
 .tag {
     font-size: 0.6rem;
-    padding: 0.15rem 0.4rem;
+    padding: 0.2rem 0.5rem;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid var(--glass-border);
     border-radius: 4px;
     color: var(--text-muted);
     text-transform: uppercase;
     font-weight: 600;
+    display: inline-block;
+    line-height: 1;
 }
 
 .item-owned {

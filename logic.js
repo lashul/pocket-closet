@@ -432,7 +432,30 @@ document.addEventListener('DOMContentLoaded', () => {
         if (header) {
             header.parentElement.classList.toggle('collapsed');
         }
+
+        // Pancake Menu Toggle
+        const menuBtn = document.getElementById('pancakeMenuBtn');
+        const dropdown = document.getElementById('pancakeDropdown');
+
+        if (e.target === menuBtn) {
+            dropdown.classList.toggle('show');
+        } else if (!dropdown.contains(e.target)) {
+            dropdown.classList.remove('show');
+        }
     });
+
+    // Pancake Menu Actions
+    document.getElementById('menuSupport').onclick = (e) => {
+        e.preventDefault();
+        showAlert('Contact Lowell', 'info');
+    };
+
+    document.getElementById('menuAbout').onclick = (e) => {
+        e.preventDefault();
+        const buildDate = '2026-02-04';
+        const version = '1.2.0';
+        showAlert(`Pocket Closet v${version}\nBuild Date: ${buildDate}`, 'info');
+    };
 
     // Form Submission with validation
     itemForm.onsubmit = async (e) => {

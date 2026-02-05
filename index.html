@@ -28,10 +28,18 @@
                 <input type="text" id="searchInput" placeholder="Search your collection...">
                 <button id="searchBtn" class="btn-search">🔍</button>
             </div>
-            <button class="btn-add" id="openAddModal" onclick="handleOpenAddModal()">
-                <span>+</span> Add Item
-            </button>
-        </header>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <button class="btn-add" id="openAddModal" onclick="handleOpenAddModal()">
+                    <span>+</span> Add Item
+                </button>
+                <div class="menu-container">
+                    <button id="pancakeMenuBtn" class="btn-icon pancake-btn" title="Menu">☰</button>
+                    <div id="pancakeDropdown" class="pancake-dropdown">
+                        <a href="#" id="menuSupport">Support</a>
+                        <a href="#" id="menuAbout">About</a>
+                    </div>
+                </div>
+            </div>
         </header>
 
         <div class="main-wrapper">

@@ -667,7 +667,7 @@ header {
     padding: 15px 20px;
     border-radius: 8px;
     z-index: 3000;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     font-size: 14px;
     max-width: 300px;
 }
@@ -685,4 +685,66 @@ header {
 .alert-info {
     background: #cbb26a;
     color: white;
+}
+
+/* Pancake Menu Styling */
+.menu-container {
+    position: relative;
+}
+
+.pancake-btn {
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.pancake-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 0.5rem;
+    background: #1e2023;
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    z-index: 2101;
+    min-width: 150px;
+    overflow: hidden;
+    backdrop-filter: blur(20px);
+}
+
+.pancake-dropdown.show {
+    display: block;
+    animation: fadeInDown 0.2s ease-out;
+}
+
+.pancake-dropdown a {
+    display: block;
+    padding: 1rem 1.5rem;
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.pancake-dropdown a:last-child {
+    border-bottom: none;
+}
+
+.pancake-dropdown a:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--primary);
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

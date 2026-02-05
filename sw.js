@@ -1,9 +1,10 @@
-const CACHE_NAME = 'pocket-closet-v28';
+const CACHE_NAME = 'pocket-closet-v29';
 const ASSETS = [
     './',
     './index.html',
     './final.css',
     './logic.js',
+    './indexeddb.js',
     './icon-192.png',
     './icon-512.png',
     './manifest.json'

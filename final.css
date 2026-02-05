@@ -658,3 +658,31 @@ header {
         min-width: 80px;
     }
 }
+
+/* Alert Notifications */
+.alert {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    z-index: 3000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    font-size: 14px;
+    max-width: 300px;
+}
+
+.alert-error {
+    background: #ff6b6b;
+    color: white;
+}
+
+.alert-success {
+    background: #51cf66;
+    color: white;
+}
+
+.alert-info {
+    background: #cbb26a;
+    color: white;
+}

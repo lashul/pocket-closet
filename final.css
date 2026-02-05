@@ -702,9 +702,23 @@ header {
     color: white;
 }
 
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 /* Pancake Menu Styling */
 .menu-container {
     position: relative;
+    z-index: 2200;
+    /* Ensure container is above other header elements */
 }
 
 .pancake-btn {
@@ -716,6 +730,7 @@ header {
     align-items: center;
     justify-content: center;
     border-radius: 12px;
+    z-index: 2201;
 }
 
 .pancake-dropdown {
@@ -728,8 +743,9 @@ header {
     border: 1px solid var(--glass-border);
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    z-index: 2101;
-    min-width: 150px;
+    z-index: 9000;
+    /* High z-index to stay above modals and FAB */
+    min-width: 180px;
     overflow: hidden;
     backdrop-filter: blur(20px);
 }

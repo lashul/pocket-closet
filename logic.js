@@ -108,14 +108,17 @@ document.addEventListener('DOMContentLoaded', () => {
             position: fixed;
             top: 20px;
             right: 20px;
-            padding: 15px 20px;
+            padding: 15px 25px;
             background: ${type === 'error' ? '#ff6b6b' : type === 'success' ? '#51cf66' : '#cbb26a'};
             color: white;
-            border-radius: 8px;
-            z-index: 3000;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            border-radius: 12px;
+            z-index: 9999;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
             font-size: 14px;
-            max-width: 300px;
+            max-width: 320px;
+            white-space: pre-wrap;
+            border: 1px solid rgba(255,255,255,0.2);
+            animation: slideIn 0.3s ease-out;
         `;
         alertDiv.textContent = message;
 

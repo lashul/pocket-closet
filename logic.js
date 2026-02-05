@@ -547,29 +547,6 @@ document.addEventListener('DOMContentLoaded', () => {
         handleFile(e.target.files[0]);
     };
 
-    // Drag and Drop Logic
-    imagePreview.addEventListener('dragover', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        imagePreview.classList.add('drag-over');
-    });
-
-    imagePreview.addEventListener('dragleave', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        imagePreview.classList.remove('drag-over');
-    });
-
-    imagePreview.addEventListener('drop', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        imagePreview.classList.remove('drag-over');
-
-        const dt = e.dataTransfer;
-        const file = dt.files[0];
-        handleFile(file);
-    });
-
     // Camera API
     triggerCamera.onclick = async () => {
         // Check if we're on a secure context (HTTPS or localhost)

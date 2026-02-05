@@ -544,6 +544,13 @@ header {
     border: 2px dashed var(--glass-border);
     cursor: pointer;
     overflow: hidden;
+    transition: var(--transition);
+}
+
+.image-preview.drag-over {
+    background: rgba(203, 178, 106, 0.1);
+    border-color: var(--primary);
+    transform: scale(1.02);
 }
 
 .image-preview img {

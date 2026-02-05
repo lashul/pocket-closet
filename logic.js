@@ -516,8 +516,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Image Handling
     imagePreview.onclick = () => imageInput.click();
 
-    imageInput.onchange = (e) => {
-        const file = e.target.files[0];
+    function handleFile(file) {
         if (file) {
             // Validate file type
             if (!file.type.startsWith('image/')) {
@@ -542,7 +541,34 @@ document.addEventListener('DOMContentLoaded', () => {
             };
             reader.readAsDataURL(file);
         }
+    }
+
+    imageInput.onchange = (e) => {
+        handleFile(e.target.files[0]);
     };
+
+    // Drag and Drop Logic
+    imagePreview.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        imagePreview.classList.add('drag-over');
+    });
+
+    imagePreview.addEventListener('dragleave', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        imagePreview.classList.remove('drag-over');
+    });
+
+    imagePreview.addEventListener('drop', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        imagePreview.classList.remove('drag-over');
+
+        const dt = e.dataTransfer;
+        const file = dt.files[0];
+        handleFile(file);
+    });
 
     // Camera API
     triggerCamera.onclick = async () => {

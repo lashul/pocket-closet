@@ -474,6 +474,34 @@ document.addEventListener('DOMContentLoaded', () => {
         showSidePanel('aboutContent');
     };
 
+    // Enter key navigation for form
+    itemForm.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            const target = e.target;
+
+            // Allow default behavior for submit button so it actually saves
+            if (target.type === 'submit') return;
+
+            // Allow natural behavior for textarea (new lines)
+            if (target.tagName === 'TEXTAREA') return;
+
+            // Prevent form submission for other fields
+            e.preventDefault();
+
+            // Find all eligible focusable fields
+            const inputs = Array.from(itemForm.querySelectorAll('input:not([type="hidden"]), select, textarea, button.btn-save'));
+            const index = inputs.indexOf(target);
+
+            if (index > -1 && index < inputs.length - 1) {
+                // Move focus to next field
+                inputs[index + 1].focus();
+            } else if (index === inputs.length - 1) {
+                // If it's the last element, trigger the submit
+                itemForm.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));
+            }
+        }
+    });
+
     // Form Submission with validation
     itemForm.onsubmit = async (e) => {
         e.preventDefault();

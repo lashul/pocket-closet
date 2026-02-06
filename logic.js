@@ -441,23 +441,37 @@ document.addEventListener('DOMContentLoaded', () => {
         const dropdown = document.getElementById('pancakeDropdown');
 
         if (e.target === menuBtn) {
+            const isOpening = !dropdown.classList.contains('show');
             dropdown.classList.toggle('show');
+            if (isOpening) {
+                dropdown.classList.remove('expanded');
+                document.querySelectorAll('.side-content').forEach(c => c.classList.remove('active'));
+            }
         } else if (!dropdown.contains(e.target)) {
             dropdown.classList.remove('show');
+            dropdown.classList.remove('expanded');
+            document.querySelectorAll('.side-content').forEach(c => c.classList.remove('active'));
         }
     });
 
     // Pancake Menu Actions
+    function showSidePanel(panelId) {
+        const dropdown = document.getElementById('pancakeDropdown');
+        const contents = document.querySelectorAll('.side-content');
+
+        contents.forEach(c => c.classList.remove('active'));
+        document.getElementById(panelId).classList.add('active');
+        dropdown.classList.add('expanded');
+    }
+
     document.getElementById('menuSupport').onclick = (e) => {
         e.preventDefault();
-        showAlert('Contact Lowell', 'info');
+        showSidePanel('supportContent');
     };
 
     document.getElementById('menuAbout').onclick = (e) => {
         e.preventDefault();
-        const buildDate = '2026-02-06 13:35:12';
-        const version = '1.2.0';
-        showAlert(`Pocket Closet v${version}\nBuild Date: ${buildDate}`, 'info');
+        showSidePanel('aboutContent');
     };
 
     // Form Submission with validation

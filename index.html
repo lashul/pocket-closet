@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="final.css?v=34">
+    <link rel="stylesheet" href="final.css?v=35">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#cbb26a">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -25,9 +25,24 @@
                 <span>POCKET CLOSET</span>
                 <div class="menu-container" style="margin-left: 0.5rem;">
                     <button id="pancakeMenuBtn" class="btn-icon pancake-btn" title="Menu">☰</button>
-                    <div id="pancakeDropdown" class="pancake-dropdown" style="left: 0; right: auto;">
-                        <a href="#" id="menuSupport">Support</a>
-                        <a href="#" id="menuAbout">About</a>
+                    <div id="pancakeDropdown" class="pancake-dropdown">
+                        <div class="menu-main">
+                            <a href="#" id="menuSupport">Support <span style="float:right">›</span></a>
+                            <a href="#" id="menuAbout">About <span style="float:right">›</span></a>
+                        </div>
+                        <div class="menu-side" id="menuSidePanel">
+                            <div id="supportContent" class="side-content">
+                                <h4 style="color:var(--primary); margin-bottom:0.5rem">Support</h4>
+                                <p style="font-size:0.85rem">Contact Lowell</p>
+                            </div>
+                            <div id="aboutContent" class="side-content">
+                                <h4 style="color:var(--primary); margin-bottom:0.5rem">About</h4>
+                                <p style="font-size:0.85rem; line-height:1.4">
+                                    Pocket Closet v1.2.0<br>
+                                    Build: 2026-02-06 13:35:12
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -345,7 +360,7 @@
         </div>
 
         <button id="mobileAddBtn" class="mobile-fab" onclick="handleOpenAddModal()">+</button>
-        <script src="logic.js?v=34" type="module"></script>
+        <script src="logic.js?v=35" type="module"></script>
 </body>
 
 </html>

@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="final.css?v=33">
+    <link rel="stylesheet" href="final.css?v=34">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#cbb26a">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -23,6 +23,13 @@
                 <img src="icon-512.png" alt="Logo"
                     style="height: 50px; width: auto; margin-right: 12px; border-radius: 8px;">
                 <span>POCKET CLOSET</span>
+                <div class="menu-container" style="margin-left: 0.5rem;">
+                    <button id="pancakeMenuBtn" class="btn-icon pancake-btn" title="Menu">☰</button>
+                    <div id="pancakeDropdown" class="pancake-dropdown" style="left: 0; right: auto;">
+                        <a href="#" id="menuSupport">Support</a>
+                        <a href="#" id="menuAbout">About</a>
+                    </div>
+                </div>
             </div>
             <div class="search-bar">
                 <input type="text" id="searchInput" placeholder="Search your collection...">
@@ -32,13 +39,6 @@
                 <button class="btn-add" id="openAddModal" onclick="handleOpenAddModal()">
                     <span>+</span> Add Item
                 </button>
-                <div class="menu-container">
-                    <button id="pancakeMenuBtn" class="btn-icon pancake-btn" title="Menu">☰</button>
-                    <div id="pancakeDropdown" class="pancake-dropdown">
-                        <a href="#" id="menuSupport">Support</a>
-                        <a href="#" id="menuAbout">About</a>
-                    </div>
-                </div>
             </div>
         </header>
 
@@ -345,7 +345,7 @@
         </div>
 
         <button id="mobileAddBtn" class="mobile-fab" onclick="handleOpenAddModal()">+</button>
-        <script src="logic.js?v=33" type="module"></script>
+        <script src="logic.js?v=34" type="module"></script>
 </body>
 
 </html>

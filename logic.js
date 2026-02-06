@@ -455,7 +455,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('menuAbout').onclick = (e) => {
         e.preventDefault();
-        const buildDate = '2026-02-04 18:41:42';
+        const buildDate = '2026-02-06 13:35:12';
         const version = '1.2.0';
         showAlert(`Pocket Closet v${version}\nBuild Date: ${buildDate}`, 'info');
     };

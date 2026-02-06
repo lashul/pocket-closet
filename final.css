@@ -523,7 +523,8 @@ header {
 }
 
 .form-group input,
-.form-group select {
+.form-group select,
+.form-group textarea {
     width: 100%;
     padding: 0.8rem;
     background: rgba(45, 48, 52, 1);
@@ -533,6 +534,19 @@ header {
     outline: none;
     -webkit-appearance: none;
     appearance: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+    font-family: 'Outfit', sans-serif;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(203, 178, 106, 0.2);
+    background: rgba(55, 58, 65, 1);
 }
 
 .form-group select {

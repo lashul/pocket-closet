@@ -479,25 +479,25 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'Enter') {
             const target = e.target;
 
-            // Allow default behavior for submit button so it actually saves
-            if (target.type === 'submit') return;
-
-            // Allow natural behavior for textarea (new lines)
+            // Allow default interaction for textareas (new lines)
             if (target.tagName === 'TEXTAREA') return;
 
-            // Prevent form submission for other fields
+            // If we are on the submit button, let the form submit naturally
+            if (target.type === 'submit') return;
+
+            // Prevent default form submission for other fields
             e.preventDefault();
 
-            // Find all eligible focusable fields
-            const inputs = Array.from(itemForm.querySelectorAll('input:not([type="hidden"]), select, textarea, button.btn-save'));
+            // Find all visible focusable fields + submit button
+            // Filter out hidden inputs (like file inputs) by checking offsetParent
+            const inputs = Array.from(itemForm.querySelectorAll('input:not([type="hidden"]), select, textarea, button[type="submit"]'))
+                .filter(el => el.offsetParent !== null && !el.disabled);
+
             const index = inputs.indexOf(target);
 
             if (index > -1 && index < inputs.length - 1) {
                 // Move focus to next field
                 inputs[index + 1].focus();
-            } else if (index === inputs.length - 1) {
-                // If it's the last element, trigger the submit
-                itemForm.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));
             }
         }
     });

@@ -501,25 +501,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 stillOwned: document.getElementById('stillOwned').value
             };
 
-            // Get photo blob if available
+            // Get photo blob only if it's a NEW photo (data: URL)
+            // Existing photos (blob: URLs) are already in the DB
             let photoBlob = null;
             if (previewImg.style.display !== 'none' && previewImg.src) {
-                if (previewImg.src.startsWith('data:') || previewImg.src.startsWith('blob:')) {
+                if (previewImg.src.startsWith('data:')) {
                     const response = await fetch(previewImg.src);
                     photoBlob = await response.blob();
                 }
             }
 
-            if (isEditing) {
-                // Update existing item
-                await closetDB.updateItem(formData);
-                if (photoBlob) {
-                    await closetDB.savePhoto(formData.id, photoBlob);
-                }
-            } else {
-                // Save new item
-                await closetDB.saveItem(formData, photoBlob);
-            }
+            // saveItem handles both Insert and Update (using .put)
+            // If photoBlob is null, it preserves the existing photo in the DB
+            await closetDB.saveItem(formData, photoBlob);
 
             await loadInventory();
             itemModal.style.display = 'none';
@@ -673,10 +667,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 previewImg.src = imageUrl;
                 previewImg.style.display = 'block';
                 previewText.style.display = 'none';
-                // Clean up URL when modal is closed
-                previewImg.addEventListener('load', () => {
-                    URL.revokeObjectURL(imageUrl);
-                });
             } else {
                 previewImg.style.display = 'none';
                 previewText.style.display = 'block';
